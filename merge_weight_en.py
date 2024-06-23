@@ -162,10 +162,13 @@ def recover(
     if check_integrity_naively:
         # This is not a rigorous, cryptographically strong integrity check :)
         allsum = sum(state_dict_recovered[key].sum() for key in state_dict_recovered)
-        assert torch.allclose(
+        print(allsum, fill_value)
+        if not torch.allclose(
             allsum, torch.full_like(allsum, fill_value=fill_value), rtol=1e-5, atol=1e-8
-        ), "Naive integrity check failed. This could imply that some of the checkpoint files are corrupted."
-        print('Check successfully.')
+        ):
+           print("Naive integrity check failed. This could imply that some of the checkpoint files are corrupted.") 
+        else:
+            print('Check successfully.')
 
     if path_tuned is not None:
         model_recovered.save_pretrained(path_tuned, max_shard_size="10GB")

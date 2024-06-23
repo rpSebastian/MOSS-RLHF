@@ -142,6 +142,15 @@ python merge_weight_en.py recover --path_raw decapoda-research/llama-7b-hf --pat
 python merge_weight_en.py recover --path_raw decapoda-research/llama-7b-hf --path_diff ./models/moss-rlhf-policy-model-7B-en/diff --path_tuned ./models/moss-rlhf-policy-model-7B-en/recover --model_type policy
 # For Chinese:
 python merge_weight_zh.py recover --path_raw decapoda-research/llama-7b-hf --path_diff ./models/moss-rlhf-reward-model-7B-zh/diff --path_tuned ./models/moss-rlhf-reward-model-7B-zh/recover
+
+
+# Reward model
+python merge_weight_en.py recover --path_raw /home/xuhang/hf_hub/decapoda-research-llama-7B-hf --path_diff /home/xuhang/hf_hub/moss-rlhf-reward-model-7B-en/diff --path_tuned /home/xuhang/hf_hub/moss-rlhf-reward-model-7B-en/recover --model_type reward
+# SFT model
+python merge_weight_en.py recover --path_raw /home/xuhang/hf_hub/decapoda-research-llama-7B-hf --path_diff /home/xuhang/hf_hub/moss-rlhf-sft-model-7B-en/diff --path_tuned /home/xuhang/hf_hub/moss-rlhf-sft-model-7B-en/recover --model_type sft
+# Policy model
+python merge_weight_en.py recover --path_raw /home/xuhang/hf_hub/decapoda-research-llama-7B-hf --path_diff /home/xuhang/hf_hub/moss-rlhf-policy-model-7B-en/diff --path_tuned /home/xuhang/hf_hub/moss-rlhf-policy-model-7B-en/recover --model_type policy
+
 ```
 
 #### Step 2: Select your own SFT model.
